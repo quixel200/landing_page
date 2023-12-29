@@ -1,0 +1,42 @@
+ 
+.navbar{
+    display: flex;
+}
+.center{
+    text-align: center;
+}
+.heading{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.header-links{
+    display: flex;
+    margin-right: 30px;
+    margin-left: auto;
+    align-items: center;
+}
+.dark-main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1f2937;
+    color: #f9faf8;
+    padding: 80px;
+}
+.dark-main div{
+    max-width: 500px;
+}
+.grid-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    text-align: center;
+}
+
+.grid-wrapper div{
+    border: 2px solid #1f2937;
+    border-radius: 5px;
+    padding: 20px;
+    font-weight:lighter;
+}
