@@ -6,7 +6,7 @@ a{
     color: #1f2937;
 }
 a:hover{
-    font-weight: bold;
+    font-weight: 600;
 
 }
 
@@ -44,6 +44,9 @@ a:hover{
     grid-template-columns: repeat(4,1fr);
     gap: 15px;
     text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 20px;
 }
 
 .projects div{
