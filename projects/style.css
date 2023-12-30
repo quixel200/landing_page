@@ -55,4 +55,8 @@ code{
 .login p{
     display: block;
     font-size: medium;
+    color: #159957;
+}
+span{
+    color: white;
 }

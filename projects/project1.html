@@ -30,12 +30,12 @@
         <figcaption>The login page of the AltoroMutual website</figcaption>
     </figure>
     <p>the way the login works is,if the Username and Password you entered are in the database and they match, then SQL returns a value of TRUE which then tells the website to give access to the user.The Query for this would be:</p>
-    <code>SELECT * FROM users WHERE username='#' AND password='#'</code>
+    <code>SELECT * FROM users WHERE username='#' AND password='#';</code>
     <p>the # represents the value entered by the user.</p>
     <p>for example, for the username admin and password Admin123 the query would look something like this:</p>
-    <code>SELECT * FROM users WHERE username='admin' AND password='Admin123'</code>
+    <code>SELECT * FROM users WHERE username='admin' AND password='Admin123';</code>
     <h2 class="heading">The key to SQL injections</h2>
-    <p>Notice the single quotes in <code>username='admin'</code>?</p>
+    <p>Notice the single quotes in <code>username='admin';</code>?</p>
     <p>Values placed within single or double quotes are called strings.They are used to store values like...well the username and password. </p>
     <p>Now we know that whatever we enter into the username and password will become a string and the rest are part of the query,<b>but what if we could make it not do that...</b>This is where the actual injection begins</p>
     <p>lets try adding a single quote(') to the end of username</p>
@@ -43,7 +43,36 @@
         <p>Username: Admin'</p>
         <p>Password: password123</p>
     </div>
-    <p>This is a great way to check if a website is vulnerable to sql injection attacks</p>
+    <p>if the site is vulnerable,you'll probably get a syntax error, something like this:</p>
+    <h4 style="color:#FF0066">Syntax error: Encountered "password123" at line 1, column 67.</h4>
+    <p>This is a great way to check if a website is vulnerable to sql injection attacks.Now why the error? As you know strings are enclosed by quotes but now that we have added one more quote,it results in a syntax error.The query sent will look something like this:</p>
+    <code>SELECT * FROM users WHERE username='admin'<span>'</span> AND password='Admin123';</code>
+    <h2 class="heading">Payloads</h2>
+    <p>Now lets take a look at the <b>logic</b> behind the first sql query, It basically states that both the username and password must exist(and match) in order for the query to evaluate to true,thereby giving you access.</p>
+    <p>payloads are basically statements that makes it so that the query always evaluates to true, giving access to anyone as long as they know the username.there are many payouts out there but for now lets look at the OR payload</p>
+    <h3>the OR paylaod</h3>
+    <p>now lets something to our username column, <code>OR '1' = '1'</code>,you'll see why in a second.</p>
+    <div class="login">
+        <p>Username: Admin' OR '1'='1'</p>
+        <p>Password: password123</p>
+    </div>
+    <p>Now the sql query looks something like this when you submit it:</p>
+    <code>SELECT * FROM users WHERE username='Admin' <span>OR '1'='1''</span> AND password='password123;</code>
+    <p>Now the way SQL executes logical operations is,it first evaluates the AND and then the OR,so now the AND part gets executed which results in a FALSE, but we have a OR where one part is always TRUE,so the actual expression gets evaluated to TRUE.now we just need to remove the extra quote at the end.</p>
+    <div class="login">
+        <p>Username: Admin' OR '1'='1</p>
+        <p>Password: password123</p>
+    </div>
+    <p>all we need to do is remove the ' at the end of 1 and we have access to the site even though we dont know the password!,the query after removing the extra quote will be:</p>
+    <code>SELECT * FROM users WHERE username='Admin' OR '1'='1' AND password='password123';</code>
+    <h4 class="heading">Login successful!</h4>
+    <p>now you might have noticed something,this only works if we know the username,but what if we dont know the username?</p>
+    <p>there are more types of payloads that allows access without the username.Theres a list of sql injection payloads in the addidition resources if youre interested.</p>
+    <h2>Additional resources:</h2>
+    <ul>
+        
+    </ul>
+
 </main>
 </body>
 </html>
