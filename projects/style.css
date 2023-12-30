@@ -43,3 +43,16 @@ code{
     border-radius: 10px;
     display: inline;
 }
+
+.login{
+    background-color: #1f2937;
+    color:white;  
+    border: 2px solid #1f2937;  
+    max-width: fit-content;
+    border-radius: 10px;
+    padding: 15px;
+}
+.login p{
+    display: block;
+    font-size: medium;
+}
