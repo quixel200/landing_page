@@ -16,7 +16,7 @@
         <h1 class="heading">What is SQL?</h1>
     <p>Structured query language or SQL for short is a language for storing and processing information in a relational database. A relational database stores information in tabular form,i.e,rows and columns representing different data attritubes and the relationsips between values.</p>
     <figure>
-    <img src="..\images\relational-db-example.png" height="350px" width="auto">
+    <img src="..\images\relational-db-example.png">
     <figcaption>an Example of a relational database</figcaption>
     </figure>
     <h3 class="heading">Queries</h3>
@@ -24,7 +24,7 @@
     <code>SELECT * FROM USERS;</code>
     <p> will select all the rows and columns from the table <code>USERS</code></p>
     <h1 class="heading">What is a SQL Injection?</h1>
-    <p>Now lets consider a totally real banking website <a href="https://demo.testfire.net/login.jsp" target="_blank">AltoroMutual</a></p>
+    <p>Now lets consider a totally real banking website <a href="https://demo.testfire.net/login.jsp" target="_blank" rel="noopener noreferrer">AltoroMutual</a></p>
     <figure>
         <img src="..\images\login.jpg" height="200px" width="auto">
         <figcaption>The login page of the AltoroMutual website</figcaption>
@@ -68,11 +68,12 @@
     <h4 class="heading">Login successful!</h4>
     <p>now you might have noticed something,this only works if we know the username,but what if we dont know the username?</p>
     <p>there are more types of payloads that allows access without the username.Theres a list of sql injection payloads in the addidition resources if youre interested.</p>
-    <h2>Additional resources:</h2>
+    <h2 class="heading">Additional resources:</h2>
     <ul>
-        
+        <li><a href="https://www.youtube.com/watch?v=2OPVViV-GQk&t=233s" target="_blank" rel="noopener noreferrer">Heres</a> a great video explaining SQL injections</li>
+        <li><a href="https://github.com/payloadbox/sql-injection-payload-list" target="_blank" rel="noopener noreferrer">https://github.com/payloadbox/sql-injection-payload-list</a> Heres a list of payloads for sql injection</li>
+        <li><a href="https://issauga.lt/login-pages.html" target="_blank" rel="noopener noreferrer">https://issauga.lt/login-pages.html</a> Try to login into these pages using sql injections</li>
     </ul>
-
 </main>
 </body>
 </html>
